@@ -6,7 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
+
 import type {Node} from 'react-native';
 import {
   SafeAreaView,
@@ -58,6 +59,7 @@ const Section = ({children, title}): Node => {
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const [isSelected, setSelection] = useState(false);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -93,7 +95,6 @@ const App: () => Node = () => {
               onChangeText={password => setPassword(password)}
             />
           </View>
-
           <TouchableOpacity>
             <Text style={styles.forgot_button}>Forgot Password?</Text>
           </TouchableOpacity>
@@ -130,6 +131,9 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
+  checkbox: {
+    alignSelf: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

@@ -20,6 +20,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 
 import {
@@ -67,7 +68,7 @@ const Section = ({children, title}): Node => {
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [isSelected, setSelection] = useState(false);
+  const [count, setCount] = useState(0);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -122,6 +123,10 @@ const App: () => Node = () => {
             <Greeting name="Jaina" />
             <Greeting name="Valeera" />
           </View>
+          <View style={styles.container}>
+            <Text>You clicked {count} times</Text>
+            <Button onPress={() => setCount(count + 1)} title="Click me!" />
+          </View>
           <Section title="Step One">
             Edit <Text style={styles.innerText}>App.js</Text> to change this
             screen and then come back to see your edits.
@@ -146,8 +151,10 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
-  checkbox: {
-    alignSelf: 'center',
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   container: {
     flex: 1,

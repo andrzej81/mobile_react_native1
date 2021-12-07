@@ -30,6 +30,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+const Greeting = props => {
+  return (
+    <View style={styles.center}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+};
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -72,6 +80,7 @@ const App: () => Node = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
         <Image
           source={{uri: 'https://reactjs.org/logo-og.png'}}
           style={{width: 400, height: 400}}
@@ -103,10 +112,16 @@ const App: () => Node = () => {
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
+
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <View style={[styles.center, {top: 50}]}>
+            <Greeting name="Rexxar" />
+            <Greeting name="Jaina" />
+            <Greeting name="Valeera" />
+          </View>
           <Section title="Step One">
             Edit <Text style={styles.innerText}>App.js</Text> to change this
             screen and then come back to see your edits.
@@ -189,6 +204,9 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  center: {
+    alignItems: 'center',
   },
 });
 

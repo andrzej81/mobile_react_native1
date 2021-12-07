@@ -20,6 +20,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 
 import {
@@ -29,6 +30,14 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+const Greeting = props => {
+  return (
+    <View style={styles.center}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+};
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -59,7 +68,7 @@ const Section = ({children, title}): Node => {
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [isSelected, setSelection] = useState(false);
+  const [count, setCount] = useState(0);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -72,6 +81,7 @@ const App: () => Node = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
         <Image
           source={{uri: 'https://reactjs.org/logo-og.png'}}
           style={{width: 400, height: 400}}
@@ -103,10 +113,20 @@ const App: () => Node = () => {
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
+
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <View style={[styles.center, {top: 50}]}>
+            <Greeting name="Rexxar" />
+            <Greeting name="Jaina" />
+            <Greeting name="Valeera" />
+          </View>
+          <View style={styles.container}>
+            <Text>You clicked {count} times</Text>
+            <Button onPress={() => setCount(count + 1)} title="Click me!" />
+          </View>
           <Section title="Step One">
             Edit <Text style={styles.innerText}>App.js</Text> to change this
             screen and then come back to see your edits.
@@ -131,8 +151,10 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
-  checkbox: {
-    alignSelf: 'center',
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   container: {
     flex: 1,
@@ -189,6 +211,9 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  center: {
+    alignItems: 'center',
   },
 });
 

@@ -72,14 +72,11 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.innerText}>App.js</Text> to change this
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
-          </Section>
-          <Section title="Debug Andrzej2 Test">
-            <DebugInstructions />
           </Section>
           <Section title="Debug Andrzej">
             <DebugInstructions />
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   innerText: {
-    color: 'yellow',
+    color: 'red',
   },
   sectionContainer: {
     marginTop: 32,

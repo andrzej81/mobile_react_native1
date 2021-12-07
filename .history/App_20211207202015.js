@@ -71,7 +71,7 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          <Section title="Step One" color="red">
             Edit <Text style={styles.innerText}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>

@@ -34,12 +34,20 @@ const Section = ({children, title}): Node => {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: isDarkMode ? Colors.white : Colors.white,
           },
         ]}>
         {title}
       </Text>
-      <Text style={styles.innerText}> Test Test </Text>
+      <Text
+        style={[
+          styles.sectionTitle,
+          {
+            color: isDarkMode ? Colors.white : Colors.black,
+          },
+        ]}>
+        Test Test
+      </Text>
       <Text
         style={[
           styles.sectionDescription,
@@ -72,14 +80,11 @@ const App: () => Node = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.innerText}>App.js</Text> to change this
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
-          </Section>
-          <Section title="Debug Andrzej2 Test">
-            <DebugInstructions />
           </Section>
           <Section title="Debug Andrzej">
             <DebugInstructions />
@@ -95,12 +100,6 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
-  baseText: {
-    fontWeight: 'bold',
-  },
-  innerText: {
-    color: 'yellow',
-  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

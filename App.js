@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 
-import type {Node} from 'react-native';
+//import type {Node} from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
